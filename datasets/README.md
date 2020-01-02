@@ -1,7 +1,14 @@
-# 5GM BEAM SELECTION
-Datasets for classification and regression avaliable at https://nextcloud.lasseufpa.org/s/MCwo2TdixCM7ryo
+# 5GM BEAM SELECTION 
 
-For more information see the Wiki page at https://github.com/lasseufpa/5gm-data/wiki
+Steps to run the code for ITA'2018 paper below
+
+1) Git clone this repository
+
+2) Download datasets (for both classification and regression) avaliable at https://nextcloud.lasseufpa.org/s/MCwo2TdixCM7ryo and store the files in the folder datasets (for example: D:\github\5gm-beam-selection\datasets)
+
+3) 
+
+For more information on creating the dataset and related tasks, see the Wiki page at https://github.com/lasseufpa/5gm-data/wiki
 
 # Reference
 
