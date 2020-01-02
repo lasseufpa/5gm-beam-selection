@@ -47,6 +47,7 @@ y_test = test_cache_file['best_ray_array'] #outputs, one integer for Tx and anot
 #best_ray_array could be the array name, if not found, try change it
 #y_test = test_cache_file['best_ray_array'] #outputs, 4 angles
 
+#check if data have the correct shape
 if len(y_test.shape) == 3:
     y_test_shape = y_test.shape
     X_test_shape = X_test.shape
