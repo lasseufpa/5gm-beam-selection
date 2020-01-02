@@ -27,7 +27,8 @@ from sklearn.preprocessing import MinMaxScaler
 #one can disable the imports below if not plotting / saving
 from keras.utils import plot_model
 import matplotlib.pyplot as plt
-
+#import sys
+#np.set_printoptions(threshold=sys.maxsize)
 #for neural net training
 batch_size = 32
 epochs = 500
@@ -46,8 +47,18 @@ X_train = train_cache_file['position_matrix_array'] #inputs
 y_train = train_cache_file['best_ray_array'] #outputs, 4 angles
 X_test = test_cache_file['position_matrix_array'] #inputs
 y_test = test_cache_file['best_ray_array'] #outputs, 4 angles
-#print(position_matrix_array.shape)
-#print(best_tx_rx_array.shape)
+
+if len(y_test.shape) == 3:
+    y_test_shape = y_test.shape
+    X_test_shape = X_test.shape
+    X_test =  X_test.reshape((X_test_shape[0]*X_test_shape[1],X_test_shape[2], X_test_shape[3]))
+    y_test = y_test.reshape((y_test_shape[0]*y_test_shape[1],4))
+
+if len(y_train.shape) == 3:
+    y_train_shape = y_train.shape
+    X_train_shape = X_train.shape
+    X_train =  X_train.reshape((X_train_shape[0]*X_train_shape[1],X_train_shape[2], X_train_shape[3]))
+    y_train = y_train.reshape((y_train_shape[0]*y_train_shape[1],4))
 
 #X_train and X_test have values -4, -3, -1, 0, 2. Simplify it to using only -1 for blockers and 1 for 
 X_train[X_train==-4] = -1

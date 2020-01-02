@@ -44,8 +44,20 @@ X_train = train_cache_file['position_matrix_array'] #inputs
 train_best_tx_rx_array = train_cache_file['best_ray_array'] #outputs, one integer for Tx and another for Rx
 X_test = test_cache_file['position_matrix_array'] #inputs
 test_best_tx_rx_array = test_cache_file['best_ray_array'] #outputs, one integer for Tx and another for Rx
-#print(position_matrix_array.shape)
-#print(best_tx_rx_array.shape)
+#best_ray_array could be the array name, if not found, try change it
+#y_test = test_cache_file['best_ray_array'] #outputs, 4 angles
+
+if len(y_test.shape) == 3:
+    y_test_shape = y_test.shape
+    X_test_shape = X_test.shape
+    X_test =  X_test.reshape((X_test_shape[0]*X_test_shape[1],X_test_shape[2], X_test_shape[3]))
+    y_test = y_test.reshape((y_test_shape[0]*y_test_shape[1],2))
+
+if len(y_train.shape) == 3:
+    y_train_shape = y_train.shape
+    X_train_shape = X_train.shape
+    X_train =  X_train.reshape((X_train_shape[0]*X_train_shape[1],X_train_shape[2], X_train_shape[3]))
+    y_train = y_train.reshape((y_train_shape[0]*y_train_shape[1],2))
 
 #X_train and X_test have values -4, -3, -1, 0, 2. Simplify it to using only -1 for blockers and 1 for 
 X_train[X_train==-4] = -1
