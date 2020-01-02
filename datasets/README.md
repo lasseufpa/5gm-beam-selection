@@ -6,7 +6,7 @@ Steps to run the code for ITA'2018 paper below. We are using Python 3.6.
 
 2) Download datasets (for both classification and regression) avaliable at https://nextcloud.lasseufpa.org/s/MCwo2TdixCM7ryo and store the files in the folder datasets (for example: D:\github\5gm-beam-selection\datasets)
 
-3)4) Go to folder regression (for example,  D:\github\5gm-beam-selection\regression) and execute:
+3) Go to folder regression (for example,  D:\github\5gm-beam-selection\regression) and execute:
 
 python deep_convnet_regression.py
 
