@@ -41,9 +41,9 @@ test_cache_file = np.load(testFileName)
 #input features (X_test and X_train) are arrays with matrices. Here we will convert matrices to 1-d array
 
 X_train = train_cache_file['position_matrix_array'] #inputs
-train_best_tx_rx_array = train_cache_file['best_ray_array'] #outputs, one integer for Tx and another for Rx
+y_train = train_cache_file['best_ray_array'] #outputs, one integer for Tx and another for Rx
 X_test = test_cache_file['position_matrix_array'] #inputs
-test_best_tx_rx_array = test_cache_file['best_ray_array'] #outputs, one integer for Tx and another for Rx
+y_test = test_cache_file['best_ray_array'] #outputs, one integer for Tx and another for Rx
 #best_ray_array could be the array name, if not found, try change it
 #y_test = test_cache_file['best_ray_array'] #outputs, 4 angles
 
