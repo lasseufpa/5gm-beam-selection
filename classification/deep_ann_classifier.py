@@ -69,14 +69,14 @@ X_test[X_test==-3] = -1
 X_test[X_test==2] = 1
 
 #convert output (i,j) to single number (the class label) and eliminate pairs that do not appear
-train_full_y = (train_best_tx_rx_array[:,0] * numUPAAntennaElements + train_best_tx_rx_array[:,1]).astype(np.int)
-test_full_y = (test_best_tx_rx_array[:,0] * numUPAAntennaElements + test_best_tx_rx_array[:,1]).astype(np.int)
+train_full_y = (y_train[:,0] * numUPAAntennaElements + y_train[:,1]).astype(np.int)
+test_full_y = (y_test[:,0] * numUPAAntennaElements + y_test[:,1]).astype(np.int)
 train_classes = set(train_full_y) #find unique pairs
 test_classes = set(test_full_y) #find unique pairs
 classes = train_classes.union(test_classes)
 
-y_train = np.empty(train_best_tx_rx_array.shape[0])
-y_test = np.empty(test_best_tx_rx_array.shape[0])
+y_train = np.empty(y_train.shape[0])
+y_test = np.empty(y_test.shape[0])
 for idx, cl in enumerate(classes): #map in single index, cl is the original class number, idx is its index
     cl_idx = np.nonzero(train_full_y == cl)
     y_train[cl_idx] = idx
