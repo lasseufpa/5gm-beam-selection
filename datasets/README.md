@@ -10,7 +10,7 @@ Steps to run the code for ITA'2018 paper below. We are using Python 3.6.
 
 python deep_convnet_regression.py
 
-4) @TO-DO NEED to fix Go to folder classification (for example, D:\github\5gm-beam-selection\classification) and execute:
+4) Go to folder classification (for example, D:\github\5gm-beam-selection\classification) and execute:
 
 python deep_ann_classifier.py
 
