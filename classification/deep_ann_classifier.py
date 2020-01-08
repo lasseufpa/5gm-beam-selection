@@ -192,10 +192,10 @@ print(model.metrics_names)
 #print('Test loss rmse:', np.sqrt(score[0]))
 #print('Test accuracy:', score[1])
 print(score)
-#print(history.history.keys())
+print(history.history.keys())
 
-val_acc = history.history['val_acc']
-acc = history.history['acc']
+val_acc = history.history['val_accuracy']
+acc = history.history['accuracy']
 f = open('classification_output.txt','w')
 f.write('validation_acc\n')
 f.write(str(val_acc))

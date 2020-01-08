@@ -48,6 +48,11 @@ y_train = train_cache_file['best_ray_array'] #outputs, 4 angles
 X_test = test_cache_file['position_matrix_array'] #inputs
 y_test = test_cache_file['best_ray_array'] #outputs, 4 angles
 
+X_train = X_train[:10]
+y_train = y_train[:10]
+X_test = X_test[:2]
+y_test = y_test[:2]
+
 if len(y_test.shape) == 3:
     y_test_shape = y_test.shape
     X_test_shape = X_test.shape
@@ -207,8 +212,9 @@ print(model.metrics_names)
 #print('Test loss rmse:', np.sqrt(score[0]))
 #print('Test accuracy:', score[1])
 print(score)
+print(history.history.keys())
 
-mapes = history.history['mean_absolute_percentage_error']
+mapes = history.history['mape']
 f = open('regression_output.txt','w')
 f.write(str(mapes))
 f.close()
