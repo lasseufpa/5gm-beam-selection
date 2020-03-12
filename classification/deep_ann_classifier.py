@@ -45,11 +45,6 @@ y_train = train_cache_file['best_ray_array'] #outputs, one integer for Tx and an
 X_test = test_cache_file['position_matrix_array'] #inputs
 y_test = test_cache_file['best_ray_array'] #outputs, one integer for Tx and another for Rx
 
-X_train = X_train[:10]
-y_train = y_train[:10]
-X_test = X_test[:2]
-y_test = y_test[:2]
-
 #check if data have the correct shape
 if len(y_test.shape) == 3:
     y_test_shape = y_test.shape
