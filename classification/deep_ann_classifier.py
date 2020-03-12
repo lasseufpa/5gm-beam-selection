@@ -34,7 +34,7 @@ trainFileName = '../datasets/all_train_classification.npz' #(22256, 24, 362)
 print("Reading dataset...", trainFileName)
 train_cache_file = np.load(trainFileName)
 
-testFileName = '../datasets/all_test_classification.npz' #(22256, 24, 362)
+testFileName = '../datasets/all_test_classification.npz' 
 print("Reading dataset...", testFileName)
 test_cache_file = np.load(testFileName)
 
@@ -44,6 +44,11 @@ X_train = train_cache_file['position_matrix_array'] #inputs
 y_train = train_cache_file['best_ray_array'] #outputs, one integer for Tx and another for Rx
 X_test = test_cache_file['position_matrix_array'] #inputs
 y_test = test_cache_file['best_ray_array'] #outputs, one integer for Tx and another for Rx
+
+X_train = X_train[:10]
+y_train = y_train[:10]
+X_test = X_test[:2]
+y_test = y_test[:2]
 
 #check if data have the correct shape
 if len(y_test.shape) == 3:
@@ -192,10 +197,13 @@ print(model.metrics_names)
 #print('Test loss rmse:', np.sqrt(score[0]))
 #print('Test accuracy:', score[1])
 print(score)
-print(history.history.keys())
 
-val_acc = history.history['val_accuracy']
-acc = history.history['accuracy']
+#if KeyError happens, try this option 
+#val_acc = history.history['val_accuracy']
+#acc = history.history['accuracy']
+
+val_acc = history.history['val_acc']
+acc = history.history['acc']
 f = open('classification_output.txt','w')
 f.write('validation_acc\n')
 f.write(str(val_acc))
